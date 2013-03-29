@@ -31,7 +31,7 @@ namespace TextManager
         /// <summary>
         /// Count number words in orginal text
         /// </summary>
-        /// <returns></returns>
+        /// <returns>int with counted words</returns>
         public int CountWords()
         {
             //var set numer word and return calculate value
@@ -52,14 +52,14 @@ namespace TextManager
         /// <summary>
         /// Count words in text edited 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>int with counted words</returns>
         public int CountWordsTextEdited()
         {
             //var set numer word and return calculate value
             int intCount = 0;
 
             //get number words
-            string[] arrayTextSplit = TextOriginal.Split((" ").ToCharArray());
+            string[] arrayTextSplit = TextEdited.Split((" ").ToCharArray());
 
             foreach (var item in arrayTextSplit)
             {
