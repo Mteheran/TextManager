@@ -23,7 +23,9 @@ namespace wpTextManager
         {
             objTextManager = new TextManager.TextManager(txtText.Text);
 
-            MessageBox.Show(objTextManager.CountWords().ToString());
+            txtCountWords.Text = objTextManager.CountWords().ToString();
+            txtCountLetter.Text = objTextManager.CountLetters().ToString();
+                 
         }
     }
 }

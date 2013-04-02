@@ -5,6 +5,10 @@ using System.Text;
 
 namespace TextManager
 {
+    /// <summary>
+    /// general class for manager text
+    /// create by Miguel Angel Teheran (@Mteheran)
+    /// </summary>
     public class TextManager
     {
         /// <summary>
@@ -44,6 +48,28 @@ namespace TextManager
             {   
                 //if text is not null if word
                 if (!string.IsNullOrEmpty(item)) { intCount++; }
+            }
+
+            return intCount;
+        }
+
+
+        /// <summary>
+        /// Count number letter in orginal text
+        /// </summary>
+        /// <returns>int with counted words</returns>
+        public int CountLetters()
+        {
+            //var set numer word and return calculate value
+            int intCount = 0;
+
+            //get number words
+            string[] arrayTextSplit = TextOriginal.Split((" ").ToCharArray());
+
+            foreach (var item in arrayTextSplit)
+            {
+                //if text is not null if word
+                if (!string.IsNullOrEmpty(item)) { intCount = intCount + item.Length; }
             }
 
             return intCount;
