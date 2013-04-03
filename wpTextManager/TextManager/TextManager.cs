@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace TextManager
 {
@@ -94,6 +95,132 @@ namespace TextManager
             }
 
             return intCount;
+        }
+
+
+        /// <summary>
+        /// find number words repet in text 
+        /// </summary>
+        /// <param name="strWord">word to find</param>
+        /// <param name="bolUpperLowerCase"></param>
+        /// <returns>list with position find word</returns>
+        public List<int> FindWord(string strWord, bool bolUpperLowerCase)
+        {           
+            List<int> lstFindResult = new List<int>();
+            string TextToFind = TextOriginal;
+
+            if (bolUpperLowerCase)
+            {
+                TextToFind = TextOriginal.ToLower();
+                strWord = strWord.ToLower();
+            }       
+           
+            int i = 0;
+            while ((i = TextToFind.IndexOf(strWord, i)) != -1)
+            {
+                lstFindResult.Add(i);
+                // Increment the index.
+                i++;
+            }
+
+            return lstFindResult;
+        }
+
+
+        /// <summary>
+        /// find exact number words repet in text 
+        /// </summary>
+        /// <param name="strWord">word to find</param>
+        /// <param name="bolUpperLowerCase"></param>
+        /// <returns>list with position find word</returns>
+        public List<Match> FindExactWord(string strWord, bool bolIgnoreUppercaseLowercase)
+        {
+
+            // Define a regular expression for repeated words.
+            Regex rx = new Regex(@"\b(?<word>\w+)",
+              RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+            List<Match> lstmatch = new List<Match>();
+
+            // Find matches.
+            MatchCollection matches = rx.Matches(TextOriginal);
+
+            foreach (Match item in matches)
+            {
+                if (bolIgnoreUppercaseLowercase)
+                {
+                    string strTempValue = item.Value.ToLower();
+                    if (strTempValue.ToLower() == strWord.ToLower())
+                        lstmatch.Add(item);
+                }
+                else
+                {
+                    if (item.Value.ToLower() == (strWord.ToLower()))
+                        lstmatch.Add(item);
+                }
+
+            }
+
+            return lstmatch;
+        }
+
+
+
+        /// <summary>
+        /// find number words repet in text 
+        /// </summary>
+        /// <param name="strWord">word to find</param>
+        /// <param name="bolUpperLowerCase"></param>
+        /// <returns>Match property width find or null if not find</returns>
+        public List<Match> FindWordRepetContinue(string strWord, bool bolIgnoreUppercaseLowercase)
+        {
+            // Define a regular expression for repeated words.
+            Regex rx = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b",
+              RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+            List<Match> lstmatch = new List<Match>();
+
+            // Find matches.
+            MatchCollection matches = rx.Matches(TextOriginal);      
+
+            foreach (Match  item in matches)
+            {
+                if (bolIgnoreUppercaseLowercase)
+	            {
+                    string strTempValue = item.Value.ToLower();
+                    if (strTempValue.ToLower().Contains(strWord.ToLower()))
+                        lstmatch.Add(item);
+	            }
+                else
+                {
+                    if (item.Value.ToLower().Contains(strWord.ToLower()))
+                        lstmatch.Add(item);
+                }
+               
+            }
+
+            return lstmatch;
+            
+        }
+
+
+        /// <summary>
+        /// find number words repet continuos in text 
+        /// </summary>
+        /// <param name="strWord">word to find</param>
+        /// <param name="bolUpperLowerCase"></param>
+        /// <returns>Match property width find or null if not find</returns>
+        public MatchCollection FindWordAllRepetContinue()
+        {
+            // Define a regular expression for repeated words.
+            Regex rx = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b",
+              RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+            // Find matches.
+            MatchCollection matches = rx.Matches(TextOriginal);
+
+            return matches;
+
         }
 
     }

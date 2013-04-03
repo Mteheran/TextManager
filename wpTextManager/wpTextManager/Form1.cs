@@ -24,8 +24,12 @@ namespace wpTextManager
             objTextManager = new TextManager.TextManager(txtText.Text);
 
             txtCountWords.Text = objTextManager.CountWords().ToString();
-            txtCountLetter.Text = objTextManager.CountLetters().ToString();
+            txtCountLetter.Text = objTextManager.CountLetters().ToString();            
+            txtcoundFindWordRegx.Text = objTextManager.FindWordRepetContinue(txtWordFindReg.Text, true).Count.ToString();
+            txtcountWordExact.Text = objTextManager.FindExactWord(txtFindExactWord.Text, true).Count.ToString();          
+            txtcountWordFind.Text = objTextManager.FindWord(txtWordFind.Text, true).Count.ToString();
                  
         }
+
     }
 }
