@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace wpTextManager
 {
@@ -29,6 +31,15 @@ namespace wpTextManager
             txtcountWordExact.Text = objTextManager.FindExactWord(txtFindExactWord.Text, true).Count.ToString();          
             txtcountWordFind.Text = objTextManager.FindWord(txtWordFind.Text, true).Count.ToString();
                  
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            string version = fvi.FileVersion;
+
+            lblVersion.Text = "Versión - " + version;
         }
 
     }

@@ -44,6 +44,7 @@
             this.txtcountWordExact = new System.Windows.Forms.TextBox();
             this.txtFindExactWord = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.txtText.Margin = new System.Windows.Forms.Padding(5);
             this.txtText.Multiline = true;
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(555, 151);
+            this.txtText.Size = new System.Drawing.Size(615, 151);
             this.txtText.TabIndex = 0;
             this.txtText.Text = "hola a todos este es un texto de prueba ";
             // 
@@ -74,7 +75,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(555, 151);
+            this.panel1.Size = new System.Drawing.Size(615, 151);
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -112,7 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(217, 230);
+            this.label3.Location = new System.Drawing.Point(286, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 7;
@@ -120,7 +121,7 @@
             // 
             // txtWordFind
             // 
-            this.txtWordFind.Location = new System.Drawing.Point(363, 223);
+            this.txtWordFind.Location = new System.Drawing.Point(432, 223);
             this.txtWordFind.Name = "txtWordFind";
             this.txtWordFind.Size = new System.Drawing.Size(85, 20);
             this.txtWordFind.TabIndex = 8;
@@ -128,21 +129,21 @@
             // 
             // txtcountWordFind
             // 
-            this.txtcountWordFind.Location = new System.Drawing.Point(454, 223);
+            this.txtcountWordFind.Location = new System.Drawing.Point(523, 223);
             this.txtcountWordFind.Name = "txtcountWordFind";
             this.txtcountWordFind.Size = new System.Drawing.Size(35, 20);
             this.txtcountWordFind.TabIndex = 9;
             // 
             // txtcoundFindWordRegx
             // 
-            this.txtcoundFindWordRegx.Location = new System.Drawing.Point(454, 275);
+            this.txtcoundFindWordRegx.Location = new System.Drawing.Point(523, 275);
             this.txtcoundFindWordRegx.Name = "txtcoundFindWordRegx";
             this.txtcoundFindWordRegx.Size = new System.Drawing.Size(35, 20);
             this.txtcoundFindWordRegx.TabIndex = 12;
             // 
             // txtWordFindReg
             // 
-            this.txtWordFindReg.Location = new System.Drawing.Point(363, 275);
+            this.txtWordFindReg.Location = new System.Drawing.Point(432, 275);
             this.txtWordFindReg.Name = "txtWordFindReg";
             this.txtWordFindReg.Size = new System.Drawing.Size(85, 20);
             this.txtWordFindReg.TabIndex = 11;
@@ -151,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(217, 282);
+            this.label4.Location = new System.Drawing.Point(286, 282);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 13);
             this.label4.TabIndex = 10;
@@ -159,14 +160,14 @@
             // 
             // txtcountWordExact
             // 
-            this.txtcountWordExact.Location = new System.Drawing.Point(454, 249);
+            this.txtcountWordExact.Location = new System.Drawing.Point(523, 249);
             this.txtcountWordExact.Name = "txtcountWordExact";
             this.txtcountWordExact.Size = new System.Drawing.Size(35, 20);
             this.txtcountWordExact.TabIndex = 15;
             // 
             // txtFindExactWord
             // 
-            this.txtFindExactWord.Location = new System.Drawing.Point(363, 249);
+            this.txtFindExactWord.Location = new System.Drawing.Point(432, 249);
             this.txtFindExactWord.Name = "txtFindExactWord";
             this.txtFindExactWord.Size = new System.Drawing.Size(85, 20);
             this.txtFindExactWord.TabIndex = 14;
@@ -175,17 +176,27 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 256);
+            this.label5.Location = new System.Drawing.Point(286, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Palabra exacta a buscar";
             // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(491, 440);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(52, 13);
+            this.lblVersion.TabIndex = 16;
+            this.lblVersion.Text = "lblVersion";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 355);
+            this.ClientSize = new System.Drawing.Size(615, 459);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.txtcountWordExact);
             this.Controls.Add(this.txtFindExactWord);
             this.Controls.Add(this.label5);
@@ -203,6 +214,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -228,6 +240,7 @@
         private System.Windows.Forms.TextBox txtcountWordExact;
         private System.Windows.Forms.TextBox txtFindExactWord;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 
