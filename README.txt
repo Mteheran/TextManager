@@ -3,7 +3,7 @@ TextManager
 
 Version 1.1 
 ConverterManager:
-- se sube conversor de números escritor a enteros ejemplo. "cincuenta y cinco" a "55"
+- se sube conversor de números escritos a enteros ejemplo. "cincuenta y cinco" a "55"
 
 Version 1.0
 TextManager:
