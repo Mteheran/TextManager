@@ -220,6 +220,7 @@
             this.txtTextToNumberConverter.Name = "txtTextToNumberConverter";
             this.txtTextToNumberConverter.Size = new System.Drawing.Size(263, 20);
             this.txtTextToNumberConverter.TabIndex = 19;
+            this.txtTextToNumberConverter.Text = "dos mil quinientos cinco";
             // 
             // txtNumberConverter
             // 
