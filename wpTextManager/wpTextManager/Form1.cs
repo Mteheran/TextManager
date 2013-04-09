@@ -42,5 +42,10 @@ namespace wpTextManager
             lblVersion.Text = "Versión - " + version;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtNumberConverter.Text = TextManager.ConverterManager.StringToInteger("es",txtTextToNumberConverter.Text).ToString();
+        }
+
     }
 }

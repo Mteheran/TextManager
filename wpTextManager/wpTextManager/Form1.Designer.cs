@@ -45,6 +45,10 @@
             this.txtFindExactWord = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtTextToNumberConverter = new System.Windows.Forms.TextBox();
+            this.txtNumberConverter = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,11 +195,50 @@
             this.lblVersion.TabIndex = 16;
             this.lblVersion.Text = "lblVersion";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 354);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(128, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Convertir texto en numero";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(39, 409);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Convertir";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtTextToNumberConverter
+            // 
+            this.txtTextToNumberConverter.Location = new System.Drawing.Point(158, 351);
+            this.txtTextToNumberConverter.Name = "txtTextToNumberConverter";
+            this.txtTextToNumberConverter.Size = new System.Drawing.Size(263, 20);
+            this.txtTextToNumberConverter.TabIndex = 19;
+            // 
+            // txtNumberConverter
+            // 
+            this.txtNumberConverter.Location = new System.Drawing.Point(432, 351);
+            this.txtNumberConverter.Name = "txtNumberConverter";
+            this.txtNumberConverter.Size = new System.Drawing.Size(126, 20);
+            this.txtNumberConverter.TabIndex = 20;
+            this.txtNumberConverter.Text = "0";
+            this.txtNumberConverter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 459);
+            this.Controls.Add(this.txtNumberConverter);
+            this.Controls.Add(this.txtTextToNumberConverter);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.txtcountWordExact);
             this.Controls.Add(this.txtFindExactWord);
@@ -241,6 +284,10 @@
         private System.Windows.Forms.TextBox txtFindExactWord;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtTextToNumberConverter;
+        private System.Windows.Forms.TextBox txtNumberConverter;
     }
 }
 
