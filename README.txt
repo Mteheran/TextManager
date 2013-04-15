@@ -3,7 +3,8 @@ TextManager
 
 Version 1.1 
 ConverterManager:
-- se sube conversor de números escritos a enteros ejemplo. "cincuenta y cinco" a "55"
+- Conversor de números escritos a enteros para idioma ingles ejemplo. "One hundred" a "100"
+- Conversor de números escritos a enteros ejemplo. "cincuenta y cinco" a "55"
 
 Version 1.0
 TextManager:
