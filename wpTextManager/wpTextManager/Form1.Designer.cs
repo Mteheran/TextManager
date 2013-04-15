@@ -49,6 +49,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtTextToNumberConverter = new System.Windows.Forms.TextBox();
             this.txtNumberConverter = new System.Windows.Forms.TextBox();
+            this.txtCulture = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -231,11 +232,20 @@
             this.txtNumberConverter.Text = "0";
             this.txtNumberConverter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // txtCulture
+            // 
+            this.txtCulture.Location = new System.Drawing.Point(564, 351);
+            this.txtCulture.Name = "txtCulture";
+            this.txtCulture.Size = new System.Drawing.Size(39, 20);
+            this.txtCulture.TabIndex = 21;
+            this.txtCulture.Text = "es";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 459);
+            this.Controls.Add(this.txtCulture);
             this.Controls.Add(this.txtNumberConverter);
             this.Controls.Add(this.txtTextToNumberConverter);
             this.Controls.Add(this.button2);
@@ -289,6 +299,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtTextToNumberConverter;
         private System.Windows.Forms.TextBox txtNumberConverter;
+        private System.Windows.Forms.TextBox txtCulture;
     }
 }
 

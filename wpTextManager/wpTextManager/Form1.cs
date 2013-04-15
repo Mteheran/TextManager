@@ -44,7 +44,7 @@ namespace wpTextManager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            txtNumberConverter.Text = TextManager.ConverterManager.StringToInteger("es",txtTextToNumberConverter.Text).ToString();
+            txtNumberConverter.Text = TextManager.ConverterManager.StringToInteger(txtCulture.Text,txtTextToNumberConverter.Text).ToString();
         }
 
     }
