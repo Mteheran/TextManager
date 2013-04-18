@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Diagnostics;
+using TextManager.Entities;
 
 namespace wpTextManager
 {
@@ -44,7 +45,17 @@ namespace wpTextManager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            txtNumberConverter.Text = TextManager.ConverterManager.StringToInteger(txtCulture.Text,txtTextToNumberConverter.Text).ToString();
+            Language lang = Language.None;
+            foreach (Language val in Enum.GetValues(typeof(Language)))
+            {
+                if (val.ToString() == cmbLenguaje.SelectedItem.ToString())
+                {
+                    lang = val;
+                    break;
+                }
+            }
+
+            txtNumberConverter.Text = TextManager.ConverterManager.StringToInteger(lang ,txtTextToNumberConverter.Text).ToString();
         }
 
     }
