@@ -49,7 +49,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtTextToNumberConverter = new System.Windows.Forms.TextBox();
             this.txtNumberConverter = new System.Windows.Forms.TextBox();
-            this.txtCulture = new System.Windows.Forms.TextBox();
+            this.cmbLenguaje = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -232,20 +232,23 @@
             this.txtNumberConverter.Text = "0";
             this.txtNumberConverter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txtCulture
+            // cmbLenguaje
             // 
-            this.txtCulture.Location = new System.Drawing.Point(564, 351);
-            this.txtCulture.Name = "txtCulture";
-            this.txtCulture.Size = new System.Drawing.Size(39, 20);
-            this.txtCulture.TabIndex = 21;
-            this.txtCulture.Text = "es";
+            this.cmbLenguaje.FormattingEnabled = true;
+            this.cmbLenguaje.Items.AddRange(new object[] {
+            "Es",
+            "En"});
+            this.cmbLenguaje.Location = new System.Drawing.Point(565, 351);
+            this.cmbLenguaje.Name = "cmbLenguaje";
+            this.cmbLenguaje.Size = new System.Drawing.Size(38, 21);
+            this.cmbLenguaje.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 459);
-            this.Controls.Add(this.txtCulture);
+            this.Controls.Add(this.cmbLenguaje);
             this.Controls.Add(this.txtNumberConverter);
             this.Controls.Add(this.txtTextToNumberConverter);
             this.Controls.Add(this.button2);
@@ -299,7 +302,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtTextToNumberConverter;
         private System.Windows.Forms.TextBox txtNumberConverter;
-        private System.Windows.Forms.TextBox txtCulture;
+        private System.Windows.Forms.ComboBox cmbLenguaje;
     }
 }
 
