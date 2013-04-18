@@ -1,17 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace TextManager
+﻿namespace TextManager
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
     /// <summary>
     /// general class for manager text
     /// create by Miguel Angel Teheran (@Mteheran)
     /// </summary>
     public class TextManager
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextManager" /> class.
+        /// </summary>
+        /// <param name="strText">Text using for changes and caculate values</param>
+        public TextManager(string strText)
+        {
+            this.TextOriginal = strText;
+            this.TextEdited = strText;
+        }
+
         /// <summary>
         /// Original text asignate in cretion object
         /// </summary>
@@ -22,55 +32,49 @@ namespace TextManager
         /// </summary>
         public string TextEdited { get; set; }
 
-
-        /// <summary>
-        /// Constructor method
-        /// </summary>
-        /// <param name="strText">Text using for changes and caculate values</param>
-        public TextManager(string strText)
-        {
-            this.TextOriginal = strText;
-            this.TextEdited = strText;
-        }
-
         /// <summary>
         /// Count number words in orginal text
         /// </summary>
         /// <returns>int with counted words</returns>
         public int CountWords()
         {
-            //var set numer word and return calculate value
+            // var set number word and return calculate value
             int intCount = 0;
             
-            //get number words
-            string[] arrayTextSplit = TextOriginal.Split((" ").ToCharArray());
+            // Get number words
+            string[] arrayTextSplit = this.TextOriginal.Split(' ');
 
             foreach (var item in arrayTextSplit)
             {   
-                //if text is not null if word
-                if (!string.IsNullOrEmpty(item)) { intCount++; }
+                // if text is not null if word
+                if (!string.IsNullOrEmpty(item)) 
+                { 
+                    intCount++; 
+                }
             }
 
             return intCount;
         }
-
-
+        
         /// <summary>
         /// Count number letter in orginal text
         /// </summary>
         /// <returns>int with counted words</returns>
         public int CountLetters()
         {
-            //var set numer word and return calculate value
+            // var set numer word and return calculate value
             int intCount = 0;
 
-            //get number words
-            string[] arrayTextSplit = TextOriginal.Split((" ").ToCharArray());
+            // get number words
+            string[] arrayTextSplit = this.TextOriginal.Split(' ');
 
             foreach (var item in arrayTextSplit)
             {
-                //if text is not null if word
-                if (!string.IsNullOrEmpty(item)) { intCount = intCount + item.Length; }
+                // if text is not null if word
+                if (!string.IsNullOrEmpty(item)) 
+                { 
+                    intCount = intCount + item.Length; 
+                }
             }
 
             return intCount;
@@ -82,68 +86,68 @@ namespace TextManager
         /// <returns>int with counted words</returns>
         public int CountWordsTextEdited()
         {
-            //var set numer word and return calculate value
+            // var set numer word and return calculate value
             int intCount = 0;
 
-            //get number words
-            string[] arrayTextSplit = TextEdited.Split((" ").ToCharArray());
+            // get number words
+            string[] arrayTextSplit = this.TextEdited.Split(' ');
 
             foreach (var item in arrayTextSplit)
             {
-                //if text is not null if word
-                if (!string.IsNullOrEmpty(item)) { intCount++; }
+                // if text is not null if word
+                if (!string.IsNullOrEmpty(item))
+                { 
+                    intCount++; 
+                }
             }
 
             return intCount;
         }
 
-
         /// <summary>
         /// find number words repet in text 
         /// </summary>
         /// <param name="strWord">word to find</param>
-        /// <param name="bolUpperLowerCase"></param>
+        /// <param name="bolUpperLowerCase">Indicates when to convert text to lowercase.</param>
         /// <returns>list with position find word</returns>
         public List<int> FindWord(string strWord, bool bolUpperLowerCase)
         {           
             List<int> lstFindResult = new List<int>();
-            string TextToFind = TextOriginal;
+            string textToFind = this.TextOriginal;
 
             if (bolUpperLowerCase)
             {
-                TextToFind = TextOriginal.ToLower();
+                textToFind = this.TextOriginal.ToLower();
                 strWord = strWord.ToLower();
             }       
            
             int i = 0;
-            while ((i = TextToFind.IndexOf(strWord, i)) != -1)
+            while ((i = textToFind.IndexOf(strWord, i)) != -1)
             {
                 lstFindResult.Add(i);
+
                 // Increment the index.
                 i++;
             }
 
             return lstFindResult;
         }
-
-
+        
         /// <summary>
         /// find exact number words repet in text 
         /// </summary>
         /// <param name="strWord">word to find</param>
-        /// <param name="bolUpperLowerCase"></param>
+        /// <param name="bolIgnoreUppercaseLowercase">Indicates when to ignore case.</param>
         /// <returns>list with position find word</returns>
         public List<Match> FindExactWord(string strWord, bool bolIgnoreUppercaseLowercase)
         {
-
             // Define a regular expression for repeated words.
-            Regex rx = new Regex(@"\b(?<word>\w+)",
-              RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex rx = new Regex(@"\b(?<word>\w+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
             List<Match> lstmatch = new List<Match>();
 
             // Find matches.
-            MatchCollection matches = rx.Matches(TextOriginal);
+            MatchCollection matches = rx.Matches(this.TextOriginal);
 
             foreach (Match item in matches)
             {
@@ -151,77 +155,73 @@ namespace TextManager
                 {
                     string strTempValue = item.Value.ToLower();
                     if (strTempValue.ToLower() == strWord.ToLower())
+                    {
                         lstmatch.Add(item);
+                    }
                 }
                 else
                 {
-                    if (item.Value.ToLower() == (strWord.ToLower()))
+                    if (item.Value.ToLower() == strWord.ToLower())
+                    {
                         lstmatch.Add(item);
+                    }
                 }
-
             }
 
             return lstmatch;
         }
-
-
-
+        
         /// <summary>
         /// find number words repet in text 
         /// </summary>
         /// <param name="strWord">word to find</param>
-        /// <param name="bolUpperLowerCase"></param>
+        /// <param name="bolIgnoreUppercaseLowercase">Indicates when to ignore case.</param>
         /// <returns>Match property width find or null if not find</returns>
         public List<Match> FindWordRepetContinue(string strWord, bool bolIgnoreUppercaseLowercase)
         {
             // Define a regular expression for repeated words.
-            Regex rx = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b",
-              RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex rx = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
             List<Match> lstmatch = new List<Match>();
 
             // Find matches.
-            MatchCollection matches = rx.Matches(TextOriginal);      
+            MatchCollection matches = rx.Matches(this.TextOriginal);      
 
-            foreach (Match  item in matches)
+            foreach (Match item in matches)
             {
                 if (bolIgnoreUppercaseLowercase)
-	            {
+                {
                     string strTempValue = item.Value.ToLower();
                     if (strTempValue.ToLower().Contains(strWord.ToLower()))
+                    {
                         lstmatch.Add(item);
-	            }
+                    }
+                }
                 else
                 {
                     if (item.Value.ToLower().Contains(strWord.ToLower()))
+                    {
                         lstmatch.Add(item);
-                }
-               
+                    }
+                }               
             }
 
-            return lstmatch;
-            
+            return lstmatch;            
         }
-
-
+        
         /// <summary>
         /// find number words repet continuos in text 
         /// </summary>
-        /// <param name="strWord">word to find</param>
-        /// <param name="bolUpperLowerCase"></param>
         /// <returns>Match property width find or null if not find</returns>
         public MatchCollection FindWordAllRepetContinue()
         {
             // Define a regular expression for repeated words.
-            Regex rx = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b",
-              RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            Regex rx = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
             // Find matches.
-            MatchCollection matches = rx.Matches(TextOriginal);
+            MatchCollection matches = rx.Matches(this.TextOriginal);
 
             return matches;
-
         }
-
     }
 }
