@@ -1,9 +1,7 @@
 ﻿namespace TextManager
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Class Validate Manager
@@ -109,5 +107,28 @@
         }
 
         #endregion
+
+        #region validate especial   
+
+        public static bool IsValidEmail(string strMailAddress)
+        {
+            // Return true if strIn is in valid e-mail format.
+            return Regex.IsMatch(strMailAddress, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+        }
+
+        public static bool IsVocal(string strLetter)
+        {
+            string strLetterSetter = strLetter.ToLower().Trim();
+
+            if (strLetterSetter == "a" || strLetterSetter == "e" || strLetterSetter == "i" || strLetterSetter == "o" || strLetterSetter == "u")
+            {
+                return true;
+            }
+
+            return false;
+        }
+            
+        #endregion
+
     }
 }
